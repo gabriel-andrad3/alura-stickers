@@ -27,7 +27,6 @@ public class App {
 
         // exibir e manipular os dados
         // RatingToStars ratingToStars = new RatingToStars(); 
-
         var geradora = new GeradoraDeFigurinhas();
         for (Map<String,String> filme : listaDeFilmes) {            
             String urlImagem = filme.get("image");

@@ -4,7 +4,8 @@ import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.InputStream;
-import java.net.URL;
+// import java.io.FileInputStream;
+// import java.net.URL;
 
 import javax.imageio.ImageIO;
 
@@ -28,7 +29,7 @@ public class GeradoraDeFigurinhas {
     graphics.drawImage(imagemOriginal, 0, 0, null);
 
     // configurar a fonte
-    Font fonte = new Font(Font.SANS_SERIF, Font.BOLD, 64);
+    Font fonte = new Font("Impact", Font.BOLD, 64);
     graphics.setFont(fonte);
 
     // escrever uma frase na nova imagem
@@ -36,13 +37,16 @@ public class GeradoraDeFigurinhas {
     graphics.drawString("TOPZERA", 100, novaAltura - 100);
 
     // escrever a nova imagem em um arquivo
-    ImageIO.write(novaImagem, "png", new File(nomeArquivo));
+    File arquivoComPasta = new File("saida/" + nomeArquivo);
+    arquivoComPasta.getParentFile().mkdirs();
+    ImageIO.write(novaImagem, "png", arquivoComPasta);
   }
 
   public static void main(String[] args) throws Exception {
-    var url = "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX128_CR0,1,128,176_AL_.jpg";
-    InputStream inputStream = new URL(url).openStream();
-    var geradora = new GeradoraDeFigurinhas();
-    geradora.cria(inputStream, "figurinha-erro.png");
+    // InputStream inputStream = new FileInputStream(new File("entrada/filme-maior.jpg"));
+    // // var url = "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX128_CR0,1,128,176_AL_.jpg";    
+    // // InputStream inputStream = new URL(url).openStream();
+    // var geradora = new GeradoraDeFigurinhas();
+    // geradora.cria(inputStream, "figurinha-impact.png");
   }
 }
