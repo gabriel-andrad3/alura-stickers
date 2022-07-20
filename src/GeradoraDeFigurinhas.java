@@ -37,7 +37,7 @@ public class GeradoraDeFigurinhas {
     graphics.drawString("TOPZERA", 100, novaAltura - 100);
 
     // escrever a nova imagem em um arquivo
-    File arquivoComPasta = new File("saida/" + nomeArquivo);
+    File arquivoComPasta = new File("../saida/" + nomeArquivo);
     arquivoComPasta.getParentFile().mkdirs();
     ImageIO.write(novaImagem, "png", arquivoComPasta);
   }
